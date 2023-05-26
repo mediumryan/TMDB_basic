@@ -1,0 +1,5 @@
+const API_KEY = '6207740ea0550aece9d7ae1d7e6d97f1';
+
+
+    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko&page=1&region=KR`;
+

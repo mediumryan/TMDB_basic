@@ -2,26 +2,52 @@ import './CSS/index.css';
 import { Routes, Route, Link } from 'react-router-dom';
 import { useState, useEffect, React } from 'react';
 import axios from 'axios';
+// import pages
+import Home from './Pages/Home';
+import NowPlaying from './Pages/NowPlaying';
+import Popular from './Pages/Popular';
+import TopRated from './Pages/TopRated';
+import UpComming from './Pages/UpComming';
+import Detail from './Pages/Detail';
+// import components
+import MainNav from './Components/MainNav';
+// import datas
+import { nowPlayingData } from './Datas/nowPlayingData';
+import { popularData } from './Datas/popularData';
+import { topRatedData } from './Datas/topRatedData';
+import { upCommingData } from './Datas/upCommingData';
 
 export default function App() {
 
-  const [movie, setMovie] = useState([]);
-
-  useEffect(() => {
-    const API_KEY = '6207740ea0550aece9d7ae1d7e6d97f1';
-    const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=ko&page=1&region=KR`;
-    axios.get(url).then((response) => {
-      setMovie(response.data.results);
-    }).catch((error) => console.log(error));
-  },[])
-
-  // const image_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`
-
-  console.log(movie)
+  const [nowPlaying, setNowPlaying] = useState(nowPlayingData.results);
+  const [popular, setPopular] = useState(popularData.results);
+  const [topRated, setTopRated] = useState(topRatedData.results);
+  const [upComming, setUpComming] = useState(upCommingData.results);
   
   return (
-    <div id='main-container'>
-      hi
+    <div id='main__container'>
+      <MainNav />
+      <Routes>
+        <Route path='/' element={<Home 
+                                   nowPlaying={nowPlaying}
+                                   popular={popular}
+                                   topRated={topRated}
+                                   upComming={upComming}
+                                   />}/>
+        <Route path='/nowplaying' element={<NowPlaying 
+                                             nowPlaying={nowPlaying}
+                                             />}/>
+        <Route path='/popular' element={<Popular 
+                                          popular={popular}
+                                          />}/>
+        <Route path='/top-rated' element={<TopRated 
+                                            topRated={topRated}
+                                            />}/>
+        <Route path='/up-comming' element={<UpComming 
+                                             upComming={upComming}
+                                             />}/>
+        <Route path='/detail' element={<Detail />}/>
+      </Routes>
     </div>
   )
 }
