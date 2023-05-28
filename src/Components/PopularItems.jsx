@@ -34,9 +34,13 @@ const PopularTitle = styled.p`
 const PopularItems = ({popular, i}) => {
 
   const image_path = `https://image.tmdb.org/t/p/w500/${popular[i].poster_path}`;
+
+  const navigate = useNavigate();
   
   return(
-    <PopularItem>
+    <PopularItem onClick={()=>{
+      navigate(`./../detail/${popular[i].title}`);
+    }}>
       <PopularTitle>{popular[i].title}</PopularTitle>
       <PopularItemImg src={image_path}/>
     </PopularItem>

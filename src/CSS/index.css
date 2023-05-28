@@ -50,7 +50,7 @@ body {
 
 #main__container {
   height : 100%;
-  padding : 0 15rem;
+  padding : 12px 25rem;
   position : relative;
   background-color : #000;
 }
@@ -63,24 +63,9 @@ body {
   height : 100vh;
 }
 
-#navbar {
-  position : sticky;
-  top : 0;
-  background : radial-gradient(
-    farthest-corner at 24px 24px,
-  var(--primary-100),
-  var(--primary-200)
-  );
-  color : var(--primary-300);
-  display : flex;
-  align-items : center;
-  padding : 24px 48px;
-  z-index : 999;
-}
-
 .nav__title {
   font-size : var(--font-size-medium-large);
-  cursor : default;
+  cursor : pointer;
 }
 
 .nav__title span:first-child {

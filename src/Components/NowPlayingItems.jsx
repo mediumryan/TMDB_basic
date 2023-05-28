@@ -34,9 +34,13 @@ const NowPlayingTitle = styled.p`
 const NowPlayingItems = ({nowPlaying, i}) => {
 
   const image_path = `https://image.tmdb.org/t/p/w500/${nowPlaying[i].poster_path}`;
+
+  const navigate = useNavigate();
   
   return(
-    <NowPlayingItem>
+    <NowPlayingItem onClick={()=>{
+      navigate(`./../detail/${nowPlaying[i].title}`);
+    }}>
       <NowPlayingTitle>{nowPlaying[i].title}</NowPlayingTitle>
       <NowPlayingItemImg src={image_path}/>
     </NowPlayingItem>

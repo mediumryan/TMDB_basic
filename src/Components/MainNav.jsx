@@ -1,12 +1,39 @@
 import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+
+const MainNavbar = styled.nav`
+  position : sticky;
+  top : 12px;
+  background : radial-gradient(
+    farthest-corner at 24px 24px,
+  var(--primary-100),
+  var(--primary-200)
+  );
+  color : var(--primary-300);
+  display : flex;
+  align-items : center;
+  padding : 24px 48px;
+  z-index : 999;
+  border-radius: 12px;
+  opacity : 0;
+  &:hover {
+    opacity : 1;
+  }
+  transition : 300ms opacity ease-in;
+`
 
 const MainNav = () => {
 
   const navigate = useNavigate();
 
   return(
-    <nav id='navbar'>
-      <div className='nav__title'>
+    <MainNavbar>
+      <div 
+        className='nav__title'
+        onClick={()=>{
+          navigate('/')
+        }}
+        >
         <span>
           <i className="fa-solid fa-video"></i>
         </span>
@@ -29,7 +56,7 @@ const MainNav = () => {
           navigate('/up-comming')
         }}>개봉예정</li>
       </ul>
-    </nav>
+    </MainNavbar>
   )
 }
 

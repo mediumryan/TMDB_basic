@@ -34,9 +34,13 @@ const TopRatedTitle = styled.p`
 const TopRatedItems = ({topRated, i}) => {
 
   const image_path = `https://image.tmdb.org/t/p/w500/${topRated[i].poster_path}`;
+
+  const navigate = useNavigate();
   
   return(
-    <TopRatedItem>
+    <TopRatedItem onClick={()=>{
+      navigate(`./../detail/${topRated[i].title}`);
+    }}>
       <TopRatedTitle>{topRated[i].title}</TopRatedTitle>
       <TopRatedItemImg src={image_path}/>
     </TopRatedItem>

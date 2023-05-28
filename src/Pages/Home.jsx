@@ -5,6 +5,7 @@ import HomeItems from './../Components/HomeItems';
 
 const HomeContainer = styled.div`
   background-color : #000;
+  padding : 12px 0;
   display : grid;
   grid-template: 1fr 1fr / 1fr 1fr;
   grid-gap: 10px;

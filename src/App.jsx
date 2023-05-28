@@ -1,7 +1,6 @@
 import './CSS/index.css';
-import { Routes, Route, Link } from 'react-router-dom';
-import { useState, useEffect, React } from 'react';
-import axios from 'axios';
+import { Routes, Route } from 'react-router-dom';
+import { useState, React } from 'react';
 // import pages
 import Home from './Pages/Home';
 import NowPlaying from './Pages/NowPlaying';
@@ -46,7 +45,12 @@ export default function App() {
         <Route path='/up-comming' element={<UpComming 
                                              upComming={upComming}
                                              />}/>
-        <Route path='/detail' element={<Detail />}/>
+        <Route path='/detail/:id' element={<Detail 
+                                              nowPlaying={nowPlaying}
+                                              popular={popular}
+                                              topRated={topRated}
+                                              upComming={upComming}
+                                             />}/>
       </Routes>
     </div>
   )

@@ -34,9 +34,13 @@ const UpCommingTitle = styled.p`
 const UpCommingItems = ({upComming, i}) => {
 
   const image_path = `https://image.tmdb.org/t/p/w500/${upComming[i].poster_path}`;
+
+  const navigate = useNavigate();
   
   return(
-    <UpCommingItem>
+    <UpCommingItem onClick={()=>{
+      navigate(`./../detail/${upComming[i].title}`);
+    }}>
       <UpCommingTitle>{upComming[i].title}</UpCommingTitle>
       <UpCommingItemImg src={image_path}/>
     </UpCommingItem>
