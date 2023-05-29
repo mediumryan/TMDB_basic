@@ -33,7 +33,7 @@ const Detail = ({nowPlaying,popular,topRated,upComming}) => {
     } else if( topRatedFound !== undefined ) {
       setDetailData(topRatedFound);
     } else if( upCommingFound !== undefined ) {
-      setDetailDatag(upCommingFound);
+      setDetailData(upCommingFound);
     } else {
       return;
     };
