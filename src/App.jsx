@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 // import pages
 import Home from './Pages/Home';
-import All from './Pages/All';
 import NowPlaying from './Pages/NowPlaying';
 import Popular from './Pages/Popular';
 import TopRated from './Pages/TopRated';
@@ -34,12 +33,6 @@ export default function App() {
                                    topRated={topRated}
                                    upComming={upComming}
                                    />}/>
-        <Route path='/all' element={<All 
-                                     nowPlaying={nowPlaying}
-                                     popular={popular}
-                                     topRated={topRated}
-                                     upComming={upComming}
-                                             />}/>
         <Route path='/nowplaying' element={<NowPlaying 
                                              nowPlaying={nowPlaying}
                                              />}/>
