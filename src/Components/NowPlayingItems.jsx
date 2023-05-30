@@ -5,7 +5,6 @@ const NowPlayingItem = styled.div`
   position : relative;
   width : 100%;
   height : 100%;
-  min-height : 240px;
   display : flex;
   align-items : center;
   justify-content : center;
@@ -32,17 +31,17 @@ const NowPlayingTitle = styled.p`
   padding : 0 12px;
 `
 
-const NowPlayingItems = ({nowPlaying, i}) => {
+const NowPlayingItems = ({item, i}) => {
 
-  const image_path = `https://image.tmdb.org/t/p/w500/${nowPlaying[i].poster_path}`;
+  const image_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`;
 
   const navigate = useNavigate();
   
   return(
     <NowPlayingItem onClick={()=>{
-      navigate(`./../detail/${nowPlaying[i].title}`);
+      navigate(`./../detail/${item.title}`);
     }}>
-      <NowPlayingTitle>{nowPlaying[i].title}</NowPlayingTitle>
+      <NowPlayingTitle>{item.title}</NowPlayingTitle>
       <NowPlayingItemImg src={image_path}/>
     </NowPlayingItem>
   )
