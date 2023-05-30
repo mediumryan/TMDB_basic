@@ -49,7 +49,14 @@ const DetailContentsInfo = styled.p`
   padding-left : 64px;
 `
 
-
+const DetailStory = styled.p`
+  max-height : 45%;
+  overflow-y : scroll;
+  font-size : 18px;
+  margin-top : 72px;
+  padding : 0 64px;
+  line-height : 1.7;
+`
 
 const DetailCard = ({ detailData }) => {
 
@@ -102,6 +109,9 @@ const DetailCard = ({ detailData }) => {
         <DetailContentsInfo>
           개봉 : {detailData&&detailData.release_date}
         </DetailContentsInfo>
+        <DetailStory>
+          {detailData&&detailData.overview}
+        </DetailStory>
       </DetailContents>
     </DetailCardContainer>
   )
