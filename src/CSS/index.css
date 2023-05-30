@@ -92,7 +92,11 @@ body {
   color : var(--primary-200);
 }
 
+.search-box-container {
+  margin : 0 auto 16px auto;
+}
+  
 .search-box {
-  font-size : 32px;
-  text-align : center;
+  font-size : 18px;
+  margin-top : 32px;
 }

@@ -31,17 +31,17 @@ const TopRatedTitle = styled.p`
   padding : 0 12px;
 `
 
-const TopRatedItems = ({topRated, i}) => {
+const TopRatedItems = ({topRatedItem}) => {
 
-  const image_path = `https://image.tmdb.org/t/p/w500/${topRated[i].poster_path}`;
+  const image_path = `https://image.tmdb.org/t/p/w500/${topRatedItem.poster_path}`;
 
   const navigate = useNavigate();
   
   return(
     <TopRatedItem onClick={()=>{
-      navigate(`./../detail/${topRated[i].title}`);
+      navigate(`./../detail/${topRatedItem.title}`);
     }}>
-      <TopRatedTitle>{topRated[i].title}</TopRatedTitle>
+      <TopRatedTitle>{topRatedItem.title}</TopRatedTitle>
       <TopRatedItemImg src={image_path}/>
     </TopRatedItem>
   )

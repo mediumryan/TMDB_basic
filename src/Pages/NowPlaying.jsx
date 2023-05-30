@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { useState } from 'react';
-import { InputGroup, Form } from 'react-bootstrap';
 // import components
 import NowPlayingItems from './../Components/NowPlayingItems';
 
@@ -15,34 +13,23 @@ const NowPlayingContainer = styled.div`
   grid-auto-rows : minmax(240px, auto);
 `
 
-const NowPlaying = ({nowPlaying}) => {
-
-  const [search, setSearch] = useState('');
+const NowPlaying = ({nowPlaying, search}) => {
 
   return(
-    <>
-      <InputGroup className="mb-3">
-        <Form.Control
-          placeholder='Search any movie'
-          onChange={(e)=>{setSearch(e.target.value)}}
-        />
-      </InputGroup>
-      <NowPlayingContainer>
-        {
-          nowPlaying.filter((i) => {
-            return search.trim() === '' ? i : i.title.trim().includes(search);
-          }).map((item,index) => {
-            return(
-              <NowPlayingItems 
-                key={item.id}
-                item={item}
-                i={index}
-                />
-            )
-          })
-        }
-      </NowPlayingContainer>
-    </>
+    <NowPlayingContainer>
+      {
+        nowPlaying.filter((i) => {
+          return search.trim() === '' ? i : i.title.trim().includes(search);
+        }).map((item,index) => {
+          return(
+            <NowPlayingItems 
+              key={item.id}
+              nowPlayingItem={item}
+              />
+          )
+        })
+      }
+    </NowPlayingContainer>
   )
 }
 

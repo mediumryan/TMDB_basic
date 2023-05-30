@@ -1,6 +1,7 @@
 import './CSS/index.css';
 import { Routes, Route } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { InputGroup, Form } from 'react-bootstrap';
 // import pages
 import Home from './Pages/Home';
 import NowPlaying from './Pages/NowPlaying';
@@ -18,14 +19,23 @@ import { upCommingData } from './Datas/upCommingData';
 
 export default function App() {
 
-  const [nowPlaying, setNowPlaying] = useState(nowPlayingData.results);
-  const [popular, setPopular] = useState(popularData.results);
-  const [topRated, setTopRated] = useState(topRatedData.results);
-  const [upComming, setUpComming] = useState(upCommingData.results);
+  const [nowPlaying] = useState(nowPlayingData.results);
+  const [popular] = useState(popularData.results);
+  const [topRated] = useState(topRatedData.results);
+  const [upComming] = useState(upCommingData.results);
+
+  const [search, setSearch] = useState('');
   
   return (
     <div id='main__container'>
       <MainNav />
+      <InputGroup className="w-50 search-box-container">
+        <Form.Control
+          className='search-box'
+          placeholder='Search any movie'
+          onChange={(e)=>{setSearch(e.target.value)}}
+        />
+      </InputGroup>
       <Routes>
         <Route path='/' element={<Home 
                                    nowPlaying={nowPlaying}
@@ -35,15 +45,19 @@ export default function App() {
                                    />}/>
         <Route path='/nowplaying' element={<NowPlaying 
                                              nowPlaying={nowPlaying}
+                                             search={search}
                                              />}/>
         <Route path='/popular' element={<Popular 
                                           popular={popular}
+                                          search={search}
                                           />}/>
         <Route path='/top-rated' element={<TopRated 
                                             topRated={topRated}
+                                            search={search}
                                             />}/>
         <Route path='/up-comming' element={<UpComming 
                                              upComming={upComming}
+                                             search={search}
                                              />}/>
         <Route path='/detail/:id' element={<Detail 
                                               nowPlaying={nowPlaying}

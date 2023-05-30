@@ -31,17 +31,17 @@ const PopularTitle = styled.p`
   padding : 0 12px;
 `
 
-const PopularItems = ({popular, i}) => {
+const PopularItems = ({popularItem, i}) => {
 
-  const image_path = `https://image.tmdb.org/t/p/w500/${popular[i].poster_path}`;
+  const image_path = `https://image.tmdb.org/t/p/w500/${popularItem.poster_path}`;
 
   const navigate = useNavigate();
   
   return(
     <PopularItem onClick={()=>{
-      navigate(`./../detail/${popular[i].title}`);
+      navigate(`./../detail/${popularItem.title}`);
     }}>
-      <PopularTitle>{popular[i].title}</PopularTitle>
+      <PopularTitle>{popularItem.title}</PopularTitle>
       <PopularItemImg src={image_path}/>
     </PopularItem>
   )

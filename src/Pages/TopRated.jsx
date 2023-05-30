@@ -6,23 +6,25 @@ import TopRatedItems from './../Components/TopRatedItems';
 const TopRatedContainer = styled.div`
   background-color : #000;
   height : 100vh;
+  overflow-y : scroll;
   padding : 12px 0;
   display : grid;
   grid-gap : 8px;
-  grid-template-rows : repeat(auto, 1fr);
-  grid-template-columns : repeat(5, 1fr);
+  grid-template-columns : repeat(3, 1fr);
+  grid-auto-rows : minmax(240px, auto);
 `
 
-const TopRated = ({topRated}) => {
+const TopRated = ({topRated, search}) => {
   return(
     <TopRatedContainer>
       {
-        topRated.map((item,index) => {
+        topRated.filter((i) => {
+          return search.trim() === '' ? i : i.title.trim().includes(search);
+        }).map((item,index) => {
           return(
             <TopRatedItems 
-              key={index}
-              topRated={topRated}
-              i={index}
+              key={item.id}
+              topRatedItem={item}
               />
           )
         })

@@ -31,17 +31,17 @@ const NowPlayingTitle = styled.p`
   padding : 0 12px;
 `
 
-const NowPlayingItems = ({item, i}) => {
+const NowPlayingItems = ({nowPlayingItem, i}) => {
 
-  const image_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`;
+  const image_path = `https://image.tmdb.org/t/p/w500/${nowPlayingItem.poster_path}`;
 
   const navigate = useNavigate();
   
   return(
     <NowPlayingItem onClick={()=>{
-      navigate(`./../detail/${item.title}`);
+      navigate(`./../detail/${nowPlayingItem.title}`);
     }}>
-      <NowPlayingTitle>{item.title}</NowPlayingTitle>
+      <NowPlayingTitle>{nowPlayingItem.title}</NowPlayingTitle>
       <NowPlayingItemImg src={image_path}/>
     </NowPlayingItem>
   )

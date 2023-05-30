@@ -31,17 +31,17 @@ const UpCommingTitle = styled.p`
   padding : 0 12px;
 `
 
-const UpCommingItems = ({upComming, i}) => {
+const UpCommingItems = ({upCommingItem, i}) => {
 
-  const image_path = `https://image.tmdb.org/t/p/w500/${upComming[i].poster_path}`;
+  const image_path = `https://image.tmdb.org/t/p/w500/${upCommingItem.poster_path}`;
 
   const navigate = useNavigate();
   
   return(
     <UpCommingItem onClick={()=>{
-      navigate(`./../detail/${upComming[i].title}`);
+      navigate(`./../detail/${upCommingItem.title}`);
     }}>
-      <UpCommingTitle>{upComming[i].title}</UpCommingTitle>
+      <UpCommingTitle>{upCommingItem.title}</UpCommingTitle>
       <UpCommingItemImg src={image_path}/>
     </UpCommingItem>
   )
