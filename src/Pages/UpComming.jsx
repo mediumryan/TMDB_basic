@@ -9,7 +9,7 @@ const UpCommingContainer = styled.div`
   padding : 12px 0;
   display : grid;
   grid-gap : 8px;
-  grid-template-rows : repeat(4, 1fr);
+  grid-template-rows : repeat(auto, 1fr);
   grid-template-columns : repeat(4, 1fr);
 `
 
