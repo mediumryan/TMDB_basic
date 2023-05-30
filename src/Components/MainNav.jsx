@@ -44,6 +44,9 @@ const MainNav = () => {
           navigate('/')
         }}>홈</li>
         <li className='nav__menu-items' onClick={()=>{
+          navigate('/all')
+        }}>모든영화</li>
+        <li className='nav__menu-items' onClick={()=>{
           navigate('/nowplaying')
         }}>상영중</li>
         <li className='nav__menu-items' onClick={()=>{

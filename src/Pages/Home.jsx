@@ -7,7 +7,7 @@ const HomeContainer = styled.div`
   background-color : #000;
   padding : 12px 0;
   display : grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
   grid-gap: 10px;
   grid-template-areas: 
     "a b"
@@ -16,8 +16,12 @@ const HomeContainer = styled.div`
 
 const Home = ({nowPlaying,popular,topRated,upComming}) => {
 
-  const [homeData] = useState([nowPlaying[0],popular[1],topRated[0],upComming[0]]);
+  const [homeData] = useState([nowPlaying[2],nowPlaying[0],popular[1],topRated[0],upComming[0]]);
   const [homeOtherData] = useState([
+    {
+    title : '모든영화',
+    movoTo : 'all',
+    },
     {
     title : '상영중',
     movoTo : 'nowplaying',
