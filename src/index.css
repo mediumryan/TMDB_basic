@@ -1,0 +1,102 @@
+@import 'reset.css';
+
+:root {
+  /* color */
+  --primary-100:#8B5FBF;
+  --primary-200:#61398F;
+  --primary-300:#FFFFFF;
+  --accent-100:#D6C6E1;
+  --accent-200:#9A73B5;
+  --text-100:#4A4A4A;
+  --text-200:#878787;
+  --bg-100:#F5F3F7;
+  --bg-200:#E9E4ED;
+  --bg-300:#FFFFFF;
+      
+
+  /* font-size */
+  --font-size-large : 36px;
+  --font-size-medium-large : 24px;
+  --font-size-medium : 18px;
+  --font-size-small : 14px;
+  --font-size-micro : 10px;
+
+  /* font-weight */
+  --font-weight-bold : 700;
+  --font-weight-normal : 500;
+  --font-weight-light : 300;
+
+  /* animation */
+  --animation-duration : 300ms;
+
+  /* border */
+  --border-radius : 8px;
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'GmarketSansMedium';
+}
+
+#main__container {
+  height : 100%;
+  padding : 12px 25rem;
+  position : relative;
+  background-color : #000;
+}
+
+.sections {
+  display : sticky;
+  justify-content : center;
+  align-items : center;
+  background-color : var(--bg-200);
+  height : 100vh;
+}
+
+.nav__title {
+  font-size : var(--font-size-medium-large);
+  cursor : pointer;
+}
+
+.nav__title span:first-child {
+  color : var(--accent-100);
+  margin-right : 12px;
+}
+
+.nav__menu {
+  display : flex;
+  margin-left : 72px;
+}
+
+.nav__menu-items {
+  padding : 8px 12px;
+  margin-right : 12px;
+  font-size : var(--font-size-small);
+  cursor : pointer;
+  border-radius : var(--border-radius);
+  transition : var(--animation-duration) ease-in;
+}
+
+.nav__menu-items:hover {
+  background-color : var(--accent-100);
+  color : var(--primary-200);
+}
+
+.search-box-container {
+  margin : 0 auto 16px auto;
+}
+  
+.search-box {
+  font-size : 18px;
+  margin-top : 32px;
+}
