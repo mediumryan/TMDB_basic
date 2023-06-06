@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const MovieCard = styled.div`
@@ -43,10 +44,12 @@ const MovieDescription = styled.div`
 
 export default function NowPlayingCard({item}) {
 
-  const img_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+const img_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+
+const navigate = useNavigate();
 
   return (
-    <MovieCard>
+    <MovieCard onClick={() => {navigate(`./../detail/${item.title}`)}}>
       <MovieCardImg src={img_path}/>
       <MovieDescription>
         <span>{item.title}</span>

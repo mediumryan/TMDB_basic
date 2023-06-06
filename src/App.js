@@ -44,7 +44,7 @@ const fetchData = async () => {
         <Route path='/now-playing' element={<NowPlaying nowplaying={nowplaying}/>}/>
         <Route path='/popular' element={<Popular />}/>
         <Route path='/top-rated' element={<TopRated />}/>
-        <Route path='/detail:id' element={<Detail />}/>
+        <Route path='/detail/:id' element={<Detail nowplaying={nowplaying}/>}/>
       </Routes>
     </div>
   );
