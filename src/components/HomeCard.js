@@ -42,7 +42,7 @@ export const MovieDescription = styled.div`
   }
 `;
 
-export default function NowPlayingCard({ item }) {
+export default function HomeCard({ item }) {
   const img_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`;
 
   const navigate = useNavigate();

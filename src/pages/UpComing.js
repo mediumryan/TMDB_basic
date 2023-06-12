@@ -9,10 +9,10 @@ export const PageContainer = styled.div`
   grid-gap: 8px;
 `;
 
-export default function NowPlaying({ nowplayingMovies }) {
+export default function UpComing({ upComingMovies }) {
   return (
     <PageContainer>
-      {nowplayingMovies.map((item) => {
+      {upComingMovies.map((item) => {
         return <NowPlayingCard key={item.id} item={item} />;
       })}
     </PageContainer>
