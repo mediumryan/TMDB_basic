@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TMDB_basic/static/css/main.4b356eda.css",
+    "main.js": "/TMDB_basic/static/js/main.89cd23bd.js",
+    "index.html": "/TMDB_basic/index.html",
+    "main.4b356eda.css.map": "/TMDB_basic/static/css/main.4b356eda.css.map",
+    "main.89cd23bd.js.map": "/TMDB_basic/static/js/main.89cd23bd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b356eda.css",
+    "static/js/main.89cd23bd.js"
+  ]
+}
