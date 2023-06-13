@@ -36,9 +36,37 @@ const DetailDescription = styled.div`
   padding: 12px 24px;
 `;
 
-export default function Detail({ nowplayingMovies }) {
+export default function Detail({
+  nowplayingMovies,
+  popularMovies,
+  topRatedMovies,
+  upComingMovies,
+}) {
   const { id } = useParams();
-  const [detailData] = useState(nowplayingMovies.find((a) => a.title === id));
+  const [detailData, setDetailData] = useState([]);
+
+  const nowPlayingFound = nowplayingMovies.find((a) => a.title == id);
+  const popularFound = popularMovies.find((a) => a.title == id);
+  const topRatedFound = topRatedMovies.find((a) => a.title == id);
+  const upCommingFound = upComingMovies.find((a) => a.title == id);
+
+  function getDetailData() {
+    if (nowPlayingFound !== undefined) {
+      setDetailData(nowPlayingFound);
+    } else if (popularFound !== undefined) {
+      setDetailData(popularFound);
+    } else if (topRatedFound !== undefined) {
+      setDetailData(topRatedFound);
+    } else if (upCommingFound !== undefined) {
+      setDetailData(upCommingFound);
+    } else {
+      return;
+    }
+  }
+
+  useEffect(() => {
+    getDetailData();
+  }, []);
 
   const getDetailImg = () => {
     if (detailData) {

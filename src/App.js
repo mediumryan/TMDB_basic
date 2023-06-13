@@ -112,7 +112,14 @@ function App() {
         />
         <Route
           path="/detail/:id"
-          element={<Detail nowplayingMovies={nowplayingMovies} />}
+          element={
+            <Detail
+              nowplayingMovies={nowplayingMovies}
+              popularMovies={popularMovies}
+              topRatedMovies={topRatedMovies}
+              upComingMovies={upComingMovies}
+            />
+          }
         />
       </Routes>
     </div>
