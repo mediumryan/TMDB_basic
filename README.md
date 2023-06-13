@@ -1,5 +1,4 @@
 # TMDB_basic
-TMDB app with React Js (just nowplaing list)
 
 영화 소개 어플리케이션 입니다.
 
