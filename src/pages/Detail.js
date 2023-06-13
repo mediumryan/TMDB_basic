@@ -45,10 +45,10 @@ export default function Detail({
   const { id } = useParams();
   const [detailData, setDetailData] = useState([]);
 
-  const nowPlayingFound = nowplayingMovies.find((a) => a.title == id);
-  const popularFound = popularMovies.find((a) => a.title == id);
-  const topRatedFound = topRatedMovies.find((a) => a.title == id);
-  const upCommingFound = upComingMovies.find((a) => a.title == id);
+  const nowPlayingFound = nowplayingMovies.find((a) => a.title === id);
+  const popularFound = popularMovies.find((a) => a.title === id);
+  const topRatedFound = topRatedMovies.find((a) => a.title === id);
+  const upCommingFound = upComingMovies.find((a) => a.title === id);
 
   function getDetailData() {
     if (nowPlayingFound !== undefined) {

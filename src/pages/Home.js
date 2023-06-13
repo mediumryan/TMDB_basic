@@ -1,31 +1,66 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import HomeCard from "../components/HomeCard";
 
-const HomeContainer = styled.div`
+export const HomeContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: minmax(240px, auto);
-  grid-gap: 16px;
+  grid-template-columns: repeat(2, 480px);
+  grid-auto-rows: minmax(360px, auto);
+  grid-gap: 8px;
+  justify-content: center;
 `;
 
-export default function Home({
+const Home = ({
   nowplayingMovies,
   popularMovies,
   topRatedMovies,
   upComingMovies,
-}) {
-  const homeData = [
-    nowplayingMovies[0],
-    popularMovies[0],
-    topRatedMovies[0],
-    upComingMovies[0],
-  ];
+}) => {
+  const [homeData, setHomeData] = useState([]);
 
-  return;
-  <HomeContainer>
-    {homeData.map((item) => {
-      return <HomeCard />;
-    })}
-  </HomeContainer>;
-}
+  useEffect(() => {
+    const extractedData = [
+      nowplayingMovies[0],
+      popularMovies[1],
+      topRatedMovies[0],
+      upComingMovies[1],
+    ];
+    setHomeData(extractedData);
+  }, [nowplayingMovies, popularMovies, topRatedMovies, upComingMovies]);
+
+  const [homeOtherData] = useState([
+    {
+      title: "상영중",
+      moveTo: "now-playing",
+    },
+    {
+      title: "인기영화",
+      moveTo: "popular",
+    },
+    {
+      title: "평점순",
+      moveTo: "top-rated",
+    },
+    {
+      title: "개봉예정",
+      moveTo: "up-coming",
+    },
+  ]);
+
+  return (
+    <HomeContainer>
+      {homeData.map((item, index) => {
+        return (
+          <HomeCard
+            item={item}
+            key={index}
+            i={index}
+            homeOtherData={homeOtherData}
+          />
+        );
+      })}
+    </HomeContainer>
+  );
+};
+
+export default Home;
