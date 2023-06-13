@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { FaAngleDown, FaSortDown, FaSortUp } from "react-icons/fa";
 
 const NavContainer = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   background: linear-gradient(#ee1d52, #ff607e);
   padding: 1rem;
   margin-bottom: 2rem;
   color: #ffcddf;
   border-radius: 0 0 10px 10px;
+  @media screen and (max-width: 413px) {
+    flex-direction: column;
+    padding: 0.5rem 0;
+  }
 `;
 
 const NavTitle = styled.div`
@@ -22,6 +28,7 @@ const NavTitle = styled.div`
 `;
 
 const NavMenu = styled.ul`
+  margin: 8px 0;
   display: flex;
   align-items: center;
   li {
@@ -35,11 +42,32 @@ const NavMenu = styled.ul`
       color: #ee1d52;
       background-color: #ffcddf;
     }
+    display: ${({ rotate }) => (rotate === 0 ? "none" : "block")};
+  }
+  @media screen and (max-width: 413px) {
+    flex-direction: column;
+  }
+`;
+
+const SortIcon = styled(FaSortUp)`
+  display: none;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  transform: ${({ rotate }) => (rotate ? "rotate(180deg)" : "rotate(0)")};
+  font-size: 24px;
+  &:hover {
+    color: #ffc107;
+  }
+  @media screen and (max-width: 413px) {
+    display: block;
   }
 `;
 
 export default function MainNav() {
   const navigate = useNavigate();
+
+  const [click, setClick] = useState(0);
+  const handleClick = () => setClick(click ? 0 : 1);
 
   return (
     <NavContainer>
@@ -50,7 +78,7 @@ export default function MainNav() {
       >
         <h1>Ryan Movie</h1>
       </NavTitle>
-      <NavMenu>
+      <NavMenu rotate={click}>
         <li
           onClick={() => {
             navigate("/");
@@ -87,6 +115,11 @@ export default function MainNav() {
           Up-Coming
         </li>
       </NavMenu>
+      {click ? (
+        <SortIcon rotate={0} onClick={handleClick} />
+      ) : (
+        <SortIcon rotate={1} onClick={handleClick} />
+      )}
     </NavContainer>
   );
 }
