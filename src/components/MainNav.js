@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { FaAngleDown, FaSortDown, FaSortUp } from "react-icons/fa";
+import { FaSortUp } from "react-icons/fa";
 
 const NavContainer = styled.nav`
   display: flex;
@@ -42,10 +42,16 @@ const NavMenu = styled.ul`
       color: #ee1d52;
       background-color: #ffcddf;
     }
-    display: ${({ rotate }) => (rotate === 0 ? "none" : "block")};
+    @media screen and (max-width: 413px) {
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+    }
   }
   @media screen and (max-width: 413px) {
+    width: 100%;
     flex-direction: column;
+    display: ${({ rotate }) => (rotate === 0 ? "none" : "block")};
   }
 `;
 

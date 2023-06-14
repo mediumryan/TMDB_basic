@@ -8,6 +8,9 @@ export const HomeContainer = styled.div`
   grid-auto-rows: minmax(360px, auto);
   grid-gap: 8px;
   justify-content: center;
+  @media screen and (max-width: 413px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 const Home = ({
