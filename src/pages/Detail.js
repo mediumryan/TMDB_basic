@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import { genres } from "./../datas/genres";
 
 const DetailContainer = styled.div`
   display: flex;
@@ -30,10 +31,23 @@ const DetailDescription = styled.div`
   width: 100%;
   height: 100%;
   color: #ff607e;
-  background-color: rgba(247, 247, 247, 0.35);
+  background-color: rgba(247, 247, 247, 0.75);
   display: flex;
   flex-direction: column;
-  padding: 12px 24px;
+  p {
+    font-size: 36px;
+    margin: 24px;
+  }
+  p:first-child {
+    text-align: center;
+    font-size: 64px;
+  }
+`;
+
+const DetailStory = styled.div`
+  width: 100%;
+  height: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
 `;
 
 export default function Detail({
@@ -74,16 +88,46 @@ export default function Detail({
     }
   };
 
+  const getGenresString = () => {
+    if (detailData && detailData.genre_ids) {
+      const genreNames = detailData.genre_ids.map((genreId) => {
+        const genre = genres.genres.find((genre) => genre.id === genreId);
+        return genre ? genre.name : "";
+      });
+      return genreNames.join(", ");
+    }
+    return "";
+  };
+
+  console.log(detailData);
+
   return (
     <DetailContainer>
       <DetailCard>
         <DetailImg src={getDetailImg()} alt="영화 포스터입니다." />
         <DetailDescription>
-          <h2>{detailData === undefined ? "Loading" : detailData.title}</h2>
-          <h4>
+          <p>{detailData === undefined ? "Loading" : detailData.title}</p>
+          <p>
             원제 :{" "}
             {detailData === undefined ? "Loading" : detailData.original_title}
-          </h4>
+          </p>
+          <p>장르 : {getGenresString()}</p>
+          <p>
+            평점 :{" "}
+            {detailData === undefined ? "Loading" : detailData.vote_average}
+          </p>
+          <p>
+            청불 :{" "}
+            {detailData === undefined
+              ? "Loading"
+              : detailData.adult === true
+              ? "O"
+              : "X"}
+          </p>
+          <DetailStory>
+            <p>스토리</p>
+            <p>{detailData === undefined ? "Loading" : detailData.overview}</p>
+          </DetailStory>
         </DetailDescription>
       </DetailCard>
     </DetailContainer>
