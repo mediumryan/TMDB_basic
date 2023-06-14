@@ -35,19 +35,30 @@ const DetailDescription = styled.div`
   display: flex;
   flex-direction: column;
   p {
-    font-size: 36px;
+    font-size: 22px;
     margin: 24px;
+    @media screen and (max-width: 413px) {
+      font-size: 18px;
+    }
   }
   p:first-child {
     text-align: center;
-    font-size: 64px;
+    font-size: 48px;
+    @media screen and (max-width: 413px) {
+      font-size: 36px;
+    }
   }
 `;
 
 const DetailStory = styled.div`
   width: 100%;
   height: 50%;
+  overflow-y: scroll;
   background-color: rgba(255, 255, 255, 0.2);
+  p:nth-child(2) {
+    line-height: 1.5;
+    font-size: 18px;
+  }
 `;
 
 export default function Detail({
