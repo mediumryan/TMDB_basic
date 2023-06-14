@@ -34,6 +34,7 @@ export const DetailDescription = styled.div`
   p {
     font-size: 22px;
     margin: 24px;
+    line-height: 1.5;
     @media screen and (max-width: 413px) {
       font-size: 18px;
     }
