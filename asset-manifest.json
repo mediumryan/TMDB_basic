@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/TMDB_basic/static/css/main.a86c52a2.css",
-    "main.js": "/TMDB_basic/static/js/main.5a591208.js",
+    "main.js": "/TMDB_basic/static/js/main.db151db0.js",
     "index.html": "/TMDB_basic/index.html",
     "main.a86c52a2.css.map": "/TMDB_basic/static/css/main.a86c52a2.css.map",
-    "main.5a591208.js.map": "/TMDB_basic/static/js/main.5a591208.js.map"
+    "main.db151db0.js.map": "/TMDB_basic/static/js/main.db151db0.js.map"
   },
   "entrypoints": [
     "static/css/main.a86c52a2.css",
-    "static/js/main.5a591208.js"
+    "static/js/main.db151db0.js"
   ]
 }
