@@ -19,12 +19,7 @@ const Home = ({
       upComingMovies[1],
     ];
     setHomeData(extractedData);
-  }, [
-    nowplayingMovies[0],
-    popularMovies[1],
-    topRatedMovies[0],
-    upComingMovies[1],
-  ]);
+  }, [nowplayingMovies, popularMovies, topRatedMovies, upComingMovies]);
 
   return (
     <HomeContainer>
@@ -32,7 +27,7 @@ const Home = ({
         return (
           <HomeCard
             item={item}
-            key={index}
+            key={item ? item.id : index}
             i={index}
             homeOtherData={homeOtherData}
           />

@@ -21,11 +21,7 @@ function App() {
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [upComingMovies, setUpComingMovies] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchMoviesByCategory = async (category) => {
     const options = {
       method: "GET",
       headers: {
@@ -34,53 +30,37 @@ function App() {
           "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MjA3NzQwZWEwNTUwYWVjZTlkN2FlMWQ3ZTZkOTdmMSIsInN1YiI6IjYzNzYyNWZlZmFiM2ZhMDBiNGQwMjM4OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dlcoYN-oeHl-AYBDulcwGEaa0ljJt-Bxp3RUXKhHvXY",
       },
     };
-
-    // Fetch now playing movies
-    const nowPlayingData = [];
+    const moviesData = [];
     for (let page = 1; page <= 5; page++) {
-      const nowPlayingURL = `https://api.themoviedb.org/3/movie/now_playing?language=ko&page=${page}&region=kr`;
-      const nowPlayingResponse = await axios.get(nowPlayingURL, options);
-      const pageData = nowPlayingResponse.data.results;
-      nowPlayingData.push(...pageData);
+      const moviesURL = `https://api.themoviedb.org/3/movie/${category}?language=ko&page=${page}&region=kr`;
+      const moviesResponse = await axios.get(moviesURL, options);
+      const pageData = moviesResponse.data.results;
+      moviesData.push(...pageData);
     }
+    return moviesData;
+  };
+
+  const fetchData = async () => {
+    // Fetch now playing movies
+    const nowPlayingData = await fetchMoviesByCategory("now_playing");
     setNowplayingMovies(nowPlayingData);
 
     // Fetch popular movies
-    const popularMoviesData = [];
-    for (let page = 1; page <= 5; page++) {
-      const popularMoviesURL = `https://api.themoviedb.org/3/movie/popular?language=ko&page=${page}&region=kr`;
-      const popularMoviesResponse = await axios.get(popularMoviesURL, options);
-      const pageData = popularMoviesResponse.data.results;
-      popularMoviesData.push(...pageData);
-    }
+    const popularMoviesData = await fetchMoviesByCategory("popular");
     setPopularMovies(popularMoviesData);
 
     // Fetch top-rated movies
-    const topRatedMoviesData = [];
-    for (let page = 1; page <= 5; page++) {
-      const topRatedMoviesURL = `https://api.themoviedb.org/3/movie/top_rated?language=ko&page=${page}&region=kr`;
-      const topRatedMoviesResponse = await axios.get(
-        topRatedMoviesURL,
-        options
-      );
-      const pageData = topRatedMoviesResponse.data.results;
-      topRatedMoviesData.push(...pageData);
-    }
+    const topRatedMoviesData = await fetchMoviesByCategory("top_rated");
     setTopRatedMovies(topRatedMoviesData);
 
     // Fetch up-coming movies
-    const upComingMoviesData = [];
-    for (let page = 1; page <= 5; page++) {
-      const upComingMoviesURL = `https://api.themoviedb.org/3/movie/upcoming?language=ko&page=${page}&region=kr`;
-      const upComingMoviesResponse = await axios.get(
-        upComingMoviesURL,
-        options
-      );
-      const pageData = upComingMoviesResponse.data.results;
-      upComingMoviesData.push(...pageData);
-    }
+    const upComingMoviesData = await fetchMoviesByCategory("upcoming");
     setUpComingMovies(upComingMoviesData);
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const navigate = useNavigate();
 
