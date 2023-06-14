@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { MovieCard, MovieCardImg, MovieDescription } from "./NowPlayingCard";
+import {
+  MovieCard,
+  MovieCardImg,
+  MovieDescription,
+} from "../styled/StyledMovieCard";
 
 export default function PopularCard({ item }) {
   const img_path = `https://image.tmdb.org/t/p/w500/${item.poster_path}`;

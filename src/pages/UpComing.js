@@ -1,6 +1,6 @@
 import React from "react";
 import NowPlayingCard from "../components/NowPlayingCard";
-import { PageContainer } from "./NowPlaying";
+import { PageContainer } from "../styled/PageContainer";
 
 export default function UpComing({ upComingMovies }) {
   return (

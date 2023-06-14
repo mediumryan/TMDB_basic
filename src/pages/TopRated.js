@@ -1,7 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import PopularCard from "../components/NowPlayingCard";
-import { PageContainer } from "./NowPlaying";
+import { PageContainer } from "../styled/PageContainer";
 
 export default function TopRated({ topRatedMovies }) {
   return (

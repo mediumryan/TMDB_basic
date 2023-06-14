@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
 import "./css/index.css";
 import axios from "axios";
 // import components
@@ -13,25 +12,8 @@ import Popular from "./pages/Popular";
 import Detail from "./pages/Detail";
 import TopRated from "./pages/TopRated";
 import UpComing from "./pages/UpComing";
-// import react-icons
-import { FaReply } from "react-icons/fa";
-
-const BackBtn = styled(FaReply)`
-  position: absolute;
-  top: 2.5%;
-  left: 2.5%;
-  color: #ee1d52;
-  font-size: 24px;
-  cursor: pointer;
-  transition: 0.5s all ease-in;
-  &:hover {
-    transform: rotate(360deg);
-  }
-  z-index: 999;
-  @media screen and (max-width: 413px) {
-    left: 7.5%;
-  }
-`;
+// import styled-components
+import { BackBtn } from "./styled/BackBtn";
 
 function App() {
   const [nowplayingMovies, setNowplayingMovies] = useState([]);
@@ -106,7 +88,7 @@ function App() {
     <div className="main_container">
       <BackBtn
         onClick={() => {
-          navigate("./../");
+          navigate(-1);
         }}
       />
       <MainNav />
