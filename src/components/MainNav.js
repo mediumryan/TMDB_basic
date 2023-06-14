@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { FaSortUp } from "react-icons/fa";
 
 const NavContainer = styled.nav`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
