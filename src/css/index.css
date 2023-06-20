@@ -23,6 +23,7 @@
   --bg-100: #f7f7f7;
   --bg-200: #ededed;
   --bg-300: #c4c4c4;
+  --bg-400: #222222;
   /* animtion-duration */
   --animation-duration: 300ms;
 }
@@ -42,7 +43,7 @@ html {
 .main_container {
   padding: 0 10rem;
   font-family: "SUITE-Regular";
-  background-color: var(--bg-200);
+  background-color: var(--bg-400);
 }
 
 @media screen and (max-width: 413px) {

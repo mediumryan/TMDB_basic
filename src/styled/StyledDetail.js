@@ -7,7 +7,7 @@ export const DetailContainer = styled.div`
 `;
 
 export const DetailCard = styled.div`
-  background-color: #000;
+  background-color: var(--bg-400);
   position: relative;
   width: 100%;
   height: 780px;
@@ -27,8 +27,8 @@ export const DetailDescription = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  color: #ff607e;
-  background-color: rgba(247, 247, 247, 0.75);
+  color: var(--primary-100);
+  background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
   p {
@@ -52,7 +52,6 @@ export const DetailStory = styled.div`
   width: 100%;
   height: 50%;
   overflow-y: scroll;
-  background-color: rgba(255, 255, 255, 0.2);
   p:nth-child(2) {
     line-height: 1.5;
     font-size: 18px;

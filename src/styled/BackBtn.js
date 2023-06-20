@@ -5,7 +5,7 @@ export const BackBtn = styled(FaReply)`
   position: absolute;
   top: 2.5%;
   left: 2.5%;
-  color: #ee1d52;
+  color: var(--accent-100);
   font-size: 24px;
   cursor: pointer;
   transition: 0.5s all ease-in;
