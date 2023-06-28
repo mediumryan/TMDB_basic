@@ -14,6 +14,7 @@ import TopRated from "./pages/TopRated";
 import UpComing from "./pages/UpComing";
 // import styled-components
 import { BackBtn } from "./styled/BackBtn";
+import NotFound from "./pages/NotFound";
 
 function App() {
   const [nowplayingMovies, setNowplayingMovies] = useState([]);
@@ -111,6 +112,7 @@ function App() {
             />
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

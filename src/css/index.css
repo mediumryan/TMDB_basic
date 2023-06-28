@@ -24,7 +24,19 @@
   --bg-200: #ededed;
   --bg-300: #c4c4c4;
   --bg-400: #222222;
-  /* animtion-duration */
+  /* padding */
+  --padding-large: 40px;
+  --padding-medium-large: 32px;
+  --padding-medium: 24px;
+  --padding-small: 16px;
+  --padding-micro: 10px;
+  /* margin */
+  --margin-large: 40px;
+  --margin-medium-large: 32px;
+  --margin-medium: 24px;
+  --margin-small: 16px;
+  --margin-micro: 10px;
+  /* animation-duration */
   --animation-duration: 300ms;
 }
 
@@ -38,6 +50,13 @@
 
 html {
   font-size: 16px;
+}
+
+button {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .main_container {
