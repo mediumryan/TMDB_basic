@@ -15,12 +15,18 @@ import UpComing from "./pages/UpComing";
 // import styled-components
 import { BackBtn } from "./styled/BackBtn";
 import NotFound from "./pages/NotFound";
+import Filter from "./components/Filter";
 
 function App() {
   const [nowplayingMovies, setNowplayingMovies] = useState([]);
   const [popularMovies, setPopularMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [upComingMovies, setUpComingMovies] = useState([]);
+  const [inputVal, setInputVal] = useState("");
+
+  const handleInputChange = (value) => {
+    setInputVal(value);
+  };
 
   const fetchMoviesByCategory = async (category) => {
     const options = {
@@ -73,6 +79,7 @@ function App() {
         }}
       />
       <MainNav />
+      <Filter onInputChange={handleInputChange} />
       <Routes>
         <Route
           path="/"
@@ -87,19 +94,30 @@ function App() {
         />
         <Route
           path="/now-playing"
-          element={<NowPlaying nowplayingMovies={nowplayingMovies} />}
+          element={
+            <NowPlaying
+              nowplayingMovies={nowplayingMovies}
+              inputVal={inputVal}
+            />
+          }
         />
         <Route
           path="/popular"
-          element={<Popular popularMovies={popularMovies} />}
+          element={
+            <Popular popularMovies={popularMovies} inputVal={inputVal} />
+          }
         />
         <Route
           path="/top-rated"
-          element={<TopRated topRatedMovies={topRatedMovies} />}
+          element={
+            <TopRated topRatedMovies={topRatedMovies} inputVal={inputVal} />
+          }
         />
         <Route
           path="/up-coming"
-          element={<UpComing upComingMovies={upComingMovies} />}
+          element={
+            <UpComing upComingMovies={upComingMovies} inputVal={inputVal} />
+          }
         />
         <Route
           path="/detail/:id"

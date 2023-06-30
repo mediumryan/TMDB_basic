@@ -65,6 +65,10 @@ button {
   background-color: var(--bg-400);
 }
 
+.input_box::placeholder {
+  color: var(--bg-300);
+}
+
 @media screen and (max-width: 413px) {
   .main_container {
     padding: 0.25rem 1rem;
