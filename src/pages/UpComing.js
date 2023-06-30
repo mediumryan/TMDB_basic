@@ -8,9 +8,9 @@ export default function UpComing({ upComingMovies, inputVal }) {
       <PageContainer>
         {upComingMovies
           .filter((i) => {
-            return inputVal.trim() === ""
+            return inputVal.trim().toLowerCase() === ""
               ? i
-              : i.title.trim().includes(inputVal);
+              : i.title.trim().toLowerCase().includes(inputVal);
           })
           .map((item) => {
             return <NowPlayingCard key={item.id} item={item} />;

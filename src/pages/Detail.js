@@ -67,12 +67,12 @@ export default function Detail({
           {detailData ? (
             <>
               <p>{detailData.title}</p>
-              <p>원제 : {detailData.original_title}</p>
-              <p>평점 : {detailData.vote_average}</p>
-              <p>장르 : {getGenresString()}</p>
-              <p>청불 : {detailData.adult === true ? "O" : "X"}</p>
+              <p>オリジナルタイトル : {detailData.original_title}</p>
+              <p>評価 : {detailData.vote_average}</p>
+              <p>ジャンル : {getGenresString()}</p>
+              <p>制限区分 : {detailData.adult === true ? "O" : "X"}</p>
               <DetailStory>
-                <p>스토리</p>
+                <p>ストーリー</p>
                 <p>
                   {detailData === undefined ? "Loading" : detailData.overview}
                 </p>

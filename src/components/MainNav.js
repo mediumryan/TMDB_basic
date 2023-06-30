@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { NavContainer, NavTitle, NavMenu, SortIcon } from "../styled/StyledNav";
+import { homeOtherData } from "../datas/homeOtherData";
 
 export default function MainNav() {
   const navigate = useNavigate();
@@ -23,35 +24,35 @@ export default function MainNav() {
             navigate("/");
           }}
         >
-          Home
+          ホーム
         </li>
         <li
           onClick={() => {
             navigate("/now-playing");
           }}
         >
-          Now-Playing
+          {homeOtherData[0].title}
         </li>
         <li
           onClick={() => {
             navigate("/popular");
           }}
         >
-          Popular
+          {homeOtherData[1].title}
         </li>
         <li
           onClick={() => {
             navigate("/top-rated");
           }}
         >
-          Top-Rated
+          {homeOtherData[2].title}
         </li>
         <li
           onClick={() => {
             navigate("/up-coming");
           }}
         >
-          Up-Coming
+          {homeOtherData[3].title}
         </li>
       </NavMenu>
       {click ? (

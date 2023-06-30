@@ -1,18 +1,18 @@
 export const homeOtherData = [
   {
-    title: "상영중",
+    title: "上映中",
     moveTo: "now-playing",
   },
   {
-    title: "인기영화",
+    title: "人気順",
     moveTo: "popular",
   },
   {
-    title: "평점순",
+    title: "評価順",
     moveTo: "top-rated",
   },
   {
-    title: "개봉예정",
+    title: "公開予定",
     moveTo: "up-coming",
   },
 ];

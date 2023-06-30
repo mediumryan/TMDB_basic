@@ -39,7 +39,7 @@ function App() {
     };
     const moviesData = [];
     for (let page = 1; page <= 5; page++) {
-      const moviesURL = `https://api.themoviedb.org/3/movie/${category}?language=ko&page=${page}&region=kr`;
+      const moviesURL = `https://api.themoviedb.org/3/movie/${category}?language=jp&page=${page}&region=JP`;
       const moviesResponse = await axios.get(moviesURL, options);
       const pageData = moviesResponse.data.results;
       moviesData.push(...pageData);

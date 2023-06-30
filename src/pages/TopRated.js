@@ -8,9 +8,9 @@ export default function TopRated({ topRatedMovies, inputVal }) {
       <PageContainer>
         {topRatedMovies
           .filter((i) => {
-            return inputVal.trim() === ""
+            return inputVal.trim().toLowerCase() === ""
               ? i
-              : i.title.trim().includes(inputVal);
+              : i.title.trim().toLowerCase().includes(inputVal);
           })
           .map((item) => {
             return <PopularCard key={item.id} item={item} />;
