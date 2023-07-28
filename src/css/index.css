@@ -60,7 +60,7 @@ button {
 }
 
 .main_container {
-  padding: 0 10rem;
+  padding: 2rem 10rem;
   font-family: "SUITE-Regular";
   background-color: var(--bg-400);
 }

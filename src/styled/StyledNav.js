@@ -34,7 +34,7 @@ export const NavMenu = styled.ul`
     padding: 8px 12px;
     font-size: 18px;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 700;
     border-radius: 12px;
     transition: 300ms all;
     &:hover {

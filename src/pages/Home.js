@@ -14,7 +14,7 @@ const Home = ({
   useEffect(() => {
     const extractedData = [
       nowplayingMovies[0],
-      popularMovies[1],
+      popularMovies[3],
       topRatedMovies[0],
       upComingMovies[1],
     ];

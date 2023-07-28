@@ -31,6 +31,7 @@ export const DetailDescription = styled.div`
   background-color: rgba(0, 0, 0, 0.85);
   display: flex;
   flex-direction: column;
+  padding: 0 25%;
   p {
     font-size: 22px;
     margin: 24px;
